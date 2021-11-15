@@ -1,3 +1,6 @@
+let width = window.innerWidth; // 1536
+let height = window.innerHeight; // 864
+
 function move(element) {
     element.style.position = 'fixed'
 
@@ -15,17 +18,34 @@ function move(element) {
         element.style.bottom = y + 'px'
         
         function moveCharacter(){ 
+
             if(direction === 'west'){
                 x-=1
+            }
+            //boundary
+            if (x < 0){
+                x = 0
             }
             if(direction === 'north'){
                 y+=1
             }
+            if (y > height){
+                y = height - 1
+            }
+           //boundary
             if(direction === 'east'){
                 x+=1
+            }            
+            //boundary
+            if (x > width){
+                x = width - 1
             }
             if(direction === 'south'){
                 y-=1
+            }
+            //boundary
+            if (y < 103){
+                y = 103
             }
             element.style.left = x + 'px'
             element.style.bottom = y + 'px'
